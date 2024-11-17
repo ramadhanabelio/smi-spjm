@@ -14,6 +14,13 @@ $(document).ready(function () {
     return "Invalid Date";
   }
 
+  function formatPrice(price) {
+    if (price && !isNaN(price)) {
+      return "Rp. " + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    return "Belum Diisi";
+  }
+
   function loadData() {
     fetch(apiUrl)
       .then((response) => response.json())
@@ -28,14 +35,15 @@ $(document).ready(function () {
             const row = document.createElement("tr");
 
             const formattedDate = formatDate(item.Tanggal);
+            const formattedPrice = formatPrice(item.Harga);
 
             row.innerHTML = `
-                  <td class="text-center">${index + 1}.</td>
-                  <td>${formattedDate || "Belum Diisi"}</td>
-                  <td>${item["Nama Alat"] || "Belum Diisi"}</td>
-                  <td>${item.Deskripsi || "Belum Diisi"}</td>
-                  <td>Rp. ${item.Harga || "Belum Diisi"}</td>
-                `;
+                    <td class="text-center">${index + 1}.</td>
+                    <td>${formattedDate || "Belum Diisi"}</td>
+                    <td>${item["Nama Alat"] || "Belum Diisi"}</td>
+                    <td>${item.Deskripsi || "Belum Diisi"}</td>
+                    <td class="text-end">${formattedPrice}</td>
+                  `;
             tableBody.appendChild(row);
           });
 
