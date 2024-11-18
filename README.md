@@ -10,6 +10,10 @@
 
 ## 📙 Description
 
-<!-- This is my assignment in the Multiplatform Programming course. This task involves creating a web and mobile application. The web part is responsible for performing CRUD operations on data and displaying it through a REST API to the mobile application. Our group developed the web application using the PHP programming language without using any framework, and for the mobile application, we used the Dart programming language and the Flutter framework. -->
+I worked on this project while carrying out practical work at the PT Pelindo Jasa Maritim Subholding, Sungai Pakning - Pekanbaru. This project aims to develop a tool and goods management web application.
+
+The full use of websites in the office is still relatively new, so we were asked to develop a system that is integrated with a familiar application, namely Excel. In this case, we utilize Google Sheets as the backend of the application. Data from Spreadsheets is sent via an API designed using Apps Script, then displayed on the web.
+
+Using Google Spreadsheets as a backend makes implementation easier because users are familiar and proficient in using Excel or Spreadsheets.
 
 ![Sistem Manajemen Inventaris SPJM Thumbnail](img/Thumbnail.png)
