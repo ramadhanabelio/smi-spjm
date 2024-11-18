@@ -2,6 +2,7 @@ $(document).ready(function () {
   const apiUrl = "https://script.google.com/macros/s/AKfycbwx8IZZ4OHSoXFS8fv2f7Cx6PvA5Sbb-zSk7xdWxeicaGtqbHcLZylyD8SUwKngoy4v/exec";
 
   let previousData = [];
+  let dataTable = null;
 
   function formatDate(date) {
     const d = new Date(date);
@@ -38,16 +39,20 @@ $(document).ready(function () {
             const formattedPrice = formatPrice(item.Harga);
 
             row.innerHTML = `
-                    <td class="text-center">${index + 1}.</td>
-                    <td>${formattedDate || "Belum Diisi"}</td>
-                    <td class="text-start">${item["Nama Alat"] || "Belum Diisi"}</td>
-                    <td class="text-start">${item.Deskripsi || "Belum Diisi"}</td>
-                    <td class="text-end">${formattedPrice}</td>
-                  `;
+              <td class="text-center">${index + 1}.</td>
+              <td>${formattedDate || "Belum Diisi"}</td>
+              <td class="text-start">${item["Nama Alat"] || "Belum Diisi"}</td>
+              <td class="text-start">${item.Deskripsi || "Belum Diisi"}</td>
+              <td class="text-end">${formattedPrice}</td>
+            `;
             tableBody.appendChild(row);
           });
 
-          $("#Table").DataTable();
+          if (dataTable) {
+            dataTable.destroy();
+          }
+
+          dataTable = $("#Table").DataTable();
         }
       })
       .catch((error) => console.error("Error fetching data:", error));
