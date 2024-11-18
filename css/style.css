@@ -1,6 +1,8 @@
 body {
   background: linear-gradient(to right, #06b6d4, #3b82f6);
   color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
@@ -16,9 +18,24 @@ body {
   padding: 20px;
 }
 
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
 footer {
   background: #003865;
   color: #fff;
   padding: 1px 0;
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  .header h6 {
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
 }

@@ -40,8 +40,8 @@ $(document).ready(function () {
             row.innerHTML = `
                     <td class="text-center">${index + 1}.</td>
                     <td>${formattedDate || "Belum Diisi"}</td>
-                    <td>${item["Nama Alat"] || "Belum Diisi"}</td>
-                    <td>${item.Deskripsi || "Belum Diisi"}</td>
+                    <td class="text-start">${item["Nama Alat"] || "Belum Diisi"}</td>
+                    <td class="text-start">${item.Deskripsi || "Belum Diisi"}</td>
                     <td class="text-end">${formattedPrice}</td>
                   `;
             tableBody.appendChild(row);
